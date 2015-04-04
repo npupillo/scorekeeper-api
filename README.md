@@ -1,39 +1,25 @@
 ![General Assembly Logo](http://i.imgur.com/ke8USTq.png)
 
-# Assignment Name (Ruby String Lab)
+# GA WDI Project 3: ScoreKeeper
 
-## Objectives
+## Description:
+Keep track of player scores!
 
-By the end of this, students should be able to:
+### Features:
+- Do abc
+- Do 123
 
-- Objective 1
-- Objective 2
-- Objective 3
+### User Stories:
+- Create & edit games
+- Create players for each game
 
-## Instructions
+## Pre-planning:
+### Whiteboard Wireframes:
+![image_1](image_1.jpg)
+![image_2](image_2.jpg)
 
-Include explict step-by-step instructions about the goals of the assignment, and how to run the code.
+### Entity Relationship Model - diagram of table structures
+![erd](erd.jpg)
 
-Make sure to wrap section of code in appropriate markdown like `ls -al`, and denote the language as below for longer sections:
 
-```ruby
-x = 2
-y = 3
-puts x + y
-```
 
-## Bonus (Optional Section)
-
-If you're looking for extra challenge or practice once you've completed the above, try to...
-
-## Notes
-
-Gotcha's and extra information
-
-## Additional Resources
-
-List additional related resources such as videos, blog posts and official documentation.
-
-- Item 1
-- Item 2
-- Item 3
