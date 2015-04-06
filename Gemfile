@@ -8,6 +8,7 @@ gem 'newrelic_rpm'
 gem 'rack-cors'
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 gem 'nokogiri'
+gem 'bcrypt'
 group :development, :test do
   gem 'capybara'
   gem 'rubocop'
@@ -20,6 +21,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
   gem 'codeclimate-test-reporter', require: nil
+  gem 'rails-erd'
 end
 group :development do
   gem 'guard'
