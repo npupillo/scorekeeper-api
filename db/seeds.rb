@@ -17,13 +17,18 @@ g2.gameplayers.create!(player_id: 4)
 
 
 gp1 = Gameplayer.first
-gp1 = Gameplayer.second
-gp1 = Gameplayer.third
+gp2 = Gameplayer.second
+gp3 = Gameplayer.third
 
-gp1.scores.create!(points: 2, round: 1)
+gp1.scores.create!(points: 4, round: 1)
 gp2.scores.create!(points: 3, round: 1)
-gp3.scores.create!(points: 1, round: 1)
+gp3.scores.create!(points: 2, round: 1)
 
-gp1.scores.create!(points: 3, round: 2)
+gp1.scores.create!(points: 7, round: 2)
 gp2.scores.create!(points: 6, round: 2)
-gp3.scores.create!(points: 4, round: 2)
+gp3.scores.create!(points: 5, round: 2)
+
+gp4.scores.create!(points: 10, round: 1)
+gp5.scores.create!(points: 11, round: 1)
+gp6.scores.create!(points: 12, round: 1)
+gp7.scores.create!(points: 13, round: 1)
