@@ -1,35 +1,59 @@
 class ScoresController < ApplicationController
+  before_action :set_score, only: [:show, :update, :destroy]
 
+  # GET /scores
+  # GET /scores.json
   def index
     @scores = Score.all
-    render json: @scores, status: 200
+
+    render json: @scores
   end
 
+  # GET /scores/1
+  # GET /scores/1.json
+  def show
+    render json: @score
+  end
 
+  # POST /scores
+  # POST /scores.json
   def create
-    # @game = Game.find(params[:game_id])
     @score = Score.new(score_params)
-    # @game.scores << @score
+
     if @score.save
-      render json: @score, status: :created
+      render json: @score, status: :created, location: @score
     else
       render json: @score.errors, status: :unprocessable_entity
     end
   end
 
+  # PATCH/PUT /scores/1
+  # PATCH/PUT /scores/1.json
   def update
     @score = Score.find(params[:id])
+
     if @score.update(score_params)
-      render json: @score, status: 200
+      head :no_content
     else
       render json: @score.errors, status: :unprocessable_entity
     end
+  end
+
+  # DELETE /scores/1
+  # DELETE /scores/1.json
+  def destroy
+    @score.destroy
+
+    head :no_content
   end
 
   private
 
-    def score_params
-      params.require(:score).permit(:pscore, :round, :player_id, :game_id)
+    def set_score
+      @score = Score.find(params[:id])
     end
 
+    def score_params
+      params.require(:score).permit(:points, :round, :gameplayer_id)
+    end
 end

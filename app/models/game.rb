@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
-  has_many :scores, dependent: :destroy
-  has_many :players, through: :scores
-  accepts_nested_attributes_for :scores, :players 
+  has_many :gameplayers
+  has_many :players, through: :gameplayers
+  has_many :scores, through: :gameplayers
 end
