@@ -9,6 +9,7 @@ gem 'rack-cors'
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 gem 'nokogiri'
 gem 'bcrypt'
+gem 'awesome_print'
 group :development, :test do
   gem 'capybara'
   gem 'rubocop'
