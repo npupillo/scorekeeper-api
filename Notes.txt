@@ -1,1 +1,6 @@
-Thu Apr 9 2015: left off w/ hb_experiment branch
+Thu Apr 9 2015:
+  - left off w/ hb_experiment branch
+  - Added gem:  awesome_print
+      To use: in binding.byebug session use 'ap' before commands to see a more reader friendly output, for example:
+        ap object.scores
+
