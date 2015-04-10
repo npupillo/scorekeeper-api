@@ -16,9 +16,13 @@ g2.gameplayers.create!(player_id: 3)
 g2.gameplayers.create!(player_id: 4)
 
 
-gp1 = Gameplayer.first
-gp2 = Gameplayer.second
-gp3 = Gameplayer.third
+gp1 = Gameplayer.find(1)
+gp2 = Gameplayer.find(2)
+gp3 = Gameplayer.find(3)
+gp4 = Gameplayer.find(4)
+gp5 = Gameplayer.find(5)
+gp6 = Gameplayer.find(6)
+gp7 = Gameplayer.find(7)
 
 gp1.scores.create!(points: 4, round: 1)
 gp2.scores.create!(points: 3, round: 1)
