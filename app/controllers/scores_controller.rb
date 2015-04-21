@@ -54,6 +54,7 @@ class ScoresController < ApplicationController
     end
 
     def score_params
-      params.require(:score).permit(:points, :round, :gameplayer_id)
+      # params.require(:score).permit(:points, :round, :gameplayer_id)
+      params.require(:score).permit(:points, :round, :gameplayer_id, :player_id, :game_id)
     end
 end
