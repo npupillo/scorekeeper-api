@@ -1,5 +1,5 @@
 class GameSerializer < ActiveModel::Serializer
-  attributes :id, :name, :start_date, :end_date, :status
+  attributes :id, :name, :start_date, :end_date, :status, :gameplayers
 
   # has_many :gameplayers
   has_many :players
