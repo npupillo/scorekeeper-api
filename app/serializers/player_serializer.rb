@@ -1,13 +1,9 @@
 class PlayerSerializer < ActiveModel::Serializer
-  attributes :id, :username, :email, :scores
-  # attributes :id, :username, :email, :score_id
+  attributes :id, :username, :email
 
-  has_many :gameplayers
-  has_many :games
-  # has_many :scores
-  # belongs_to :game
-  # has_many :games, through: :scores
+  has_many :scores
 
+=begin
   def scores
     # object.gameplayers is an array, we have to iterate over that array,
     # for each object.gameplayers, we have to query for the scores of that gameplayer, and return the score's data.
@@ -24,4 +20,6 @@ class PlayerSerializer < ActiveModel::Serializer
     }
 
   end
+=end
+
 end

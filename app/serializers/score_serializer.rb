@@ -1,12 +1,11 @@
 class ScoreSerializer < ActiveModel::Serializer
-  attributes :id, :points, :round, :gameplayer_id, :player_id
+  attributes :id, :game_id, :player_id, :points, :player_name
 
-  belongs_to :gameplayer
   belongs_to :game
   belongs_to :player
 
-  def player_id
-    object.gameplayer
+  def player_name
+    object.player.username
   end
 
 end

@@ -11,20 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406210700) do
+ActiveRecord::Schema.define(version: 20150406210630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "gameplayers", force: :cascade do |t|
-    t.integer  "game_id"
-    t.integer  "player_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "gameplayers", ["game_id"], name: "index_gameplayers_on_game_id", using: :btree
-  add_index "gameplayers", ["player_id"], name: "index_gameplayers_on_player_id", using: :btree
 
   create_table "games", force: :cascade do |t|
     t.string   "name"
@@ -38,23 +28,21 @@ ActiveRecord::Schema.define(version: 20150406210700) do
   create_table "players", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
-    t.string   "password_digest"
-    t.string   "token"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "scores", force: :cascade do |t|
+    t.integer  "game_id"
+    t.integer  "player_id"
     t.integer  "points"
-    t.integer  "round"
-    t.integer  "gameplayer_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "scores", ["gameplayer_id"], name: "index_scores_on_gameplayer_id", using: :btree
+  add_index "scores", ["game_id"], name: "index_scores_on_game_id", using: :btree
+  add_index "scores", ["player_id"], name: "index_scores_on_player_id", using: :btree
 
-  add_foreign_key "gameplayers", "games"
-  add_foreign_key "gameplayers", "players"
-  add_foreign_key "scores", "gameplayers"
+  add_foreign_key "scores", "games"
+  add_foreign_key "scores", "players"
 end

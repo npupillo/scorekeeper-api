@@ -12,7 +12,7 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
-    @game = Game.includes(:gameplayers).find(params[:id])
+    @game = Game.includes(:scores).find(params[:id])
     render json: @game
   end
 

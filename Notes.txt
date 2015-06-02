@@ -17,3 +17,170 @@ http://stackoverflow.com/questions/29203272/couldnt-run-migration-after-spring-u
 $ bundle update
 $ rails c
 
+=====
+Golf Score Grapher, project example:
+/Users/npup/Documents/_GA/WDI/Project3/golf-score-grapher
+    forked from:
+    https://github.com/mmmries/golf-score-grapher
+    front end app at: http://golf.riesd.com/
+
+=====
+repl.it:
+# gameData = [
+#     {name: 'Larry', data: [4]},
+#     {name: 'Curly', data: [3]},
+#     {name: 'Moe', data: [1]},
+#     {name: 'Jack', data: [2]},
+#     {name: 'Larry', data: [7]},
+#     {name: 'Curly', data: [5]},
+#     {name: 'Moe', data: [9]},
+#     {name: 'Jack', data: [8]}
+#     ]
+
+gameData = [
+    {'name' => 'Larry', 'data' => [4]},
+    {'name' => 'Curly', 'data' => [3]},
+    {'name' => 'Moe', 'data' => [1]},
+    {'name' => 'Jack', 'data' => [2]},
+    {'name' => 'Larry', 'data' => [7]},
+    {'name' => 'Curly', 'data' => [5]},
+    {'name' => 'Moe', 'data' => [9]},
+    {'name' => 'Jack', 'data' => [8]}
+    ]
+
+objs = gameData[0]
+# objs['name'] #=> "Larry"
+# objs['data'] #=> [4]
+# p objs['data'][0] #=> 4
+# objs.key("Larry") #=> "name"
+
+# WORKING
+# larry = gameData[0]['name']
+# new_array = [{'name' => 'Larry', 'data' => [99]}]
+# new_array.any? {|h| h['name'] == larry } #=> true
+# new_array.select { |h| h['name'].include?(larry) }
+
+new_array = [
+    # {'name' => 'Larry', 'data' => [98]} ,
+    # {'name' => 'Bob', 'data' => [99]}
+    ]
+
+# WORKING
+# new_array.detect { |h| h["name"] == "Larry" } #return first match
+# new_array.select { |hash| hash['name'].include?('Larry') } #return all matches
+# new_array.any? { |h| h['name'].include?('Larry') } #=> true
+
+# IN PROGRESS
+# for each name in gameData, check if it exists in new_array
+gameData.each do |obj|
+    obj_name = obj['name']
+    obj_data = obj['data']
+    # p obj['name']
+    # if obj['name'] == "Larry"
+    #     p obj['name']
+    #     p obj['data']
+    # end
+
+    #if obj 'name' IS NOT found in new_array, push the obj to the array
+    if new_array.any? {|h| h['name'] == obj_name } == false
+        p 'NOT found: ' + obj_name + obj_data.to_s
+        p 'push obj: ' + obj_name
+        new_array << obj
+
+    #if obj 'name' IS found in new_array, push the data value
+    elsif new_array.any? {|h| h['name'] == obj_name} == true
+        p 'OBJECT FOUND: ' + obj_name + obj_data.to_s
+        detected = new_array.detect { |h| h["name"] == obj_name } #return first match
+        # p 'match detected: '
+        # p detected
+        p 'push obj data: ' + obj_data.to_s
+        detected['data'] << obj_data[0]
+    end
+end
+new_array
+
+# h = { "a" => 100, "b" => 200, "c" => 300 }
+# h.select {|k,v| v == 200}  #=> {"b" => 200}
+
+# gameData.each do |obj|
+#     if new_array.any? {|h| h['name'] == obj['name']}
+#         p obj['name']
+#     end
+
+#     # if new_array['name'].has_value?(obj['name'])
+#     #     p new_array['name']
+#     # end
+# end
+
+    # if name does EXIST
+        # then push data array value to the new array
+        # my_hash = {'data' => [4]}
+        # (my_hash["data"] ||= []) << 8
+        # (my_hash["data"] ||= []) << 9
+        # my_hash
+
+# gameData.select { |hash|
+#     if hash['name'].include?('Larry')
+#         p hash['data']
+#     end
+# }
+
+# array of objects to compare with
+# arr = [
+#     {'name' => 'Larry', 'data' => [100]}
+#     ]
+
+# gameData.each do |obj|
+    # if obj['name'] == arr['name']
+    #     p obj['data']
+    # end
+# end
+
+# ht = {}
+# (ht["data"] ||= []) << 8
+# (ht["data"] ||= []) << 9
+# ht
+
+# iterate through each object
+# loe.article.map(&:title) #shorthand
+# loe.article.map{ |o| o.title }
+
+#print the name in each object
+# gameData.each do |obj|
+#     p obj[:name]
+#     p obj[:data]
+# end
+
+# gameData.each do |obj|
+#     if arr[:name] == obj[:name]
+#         p arr[:name]
+#     end
+# end
+
+# gameData.each do |obj|
+#     if (arr.select { |hash| hash['name'].include?('Larry') } == true)
+#     # if arr.select { |hash| hash['name'].include?(obj['name'])}
+#         p arr['name']
+#         # p arr[:name]
+#     end
+# end
+
+# arr.detect { |h| h["name"] == "Larry" } #return first match
+
+# arr.select { |h| h['name'].include?('Larry') } #return all matches
+# => [{"name" => "John", "Loc" => "US", "fname" => "John Doe"}]
+
+# arr.any? { |h| h['name'].include?('Larry') }
+# => true
+
+#arr
+
+# gameData.each { |obj|
+#     for key in obj.keys
+#       puts "obj[#{key.inspect}] = #{obj[key].inspect}"
+#     end
+# }
+
+#   if name does not exist in empty array
+#       push data value to data attribute
+
