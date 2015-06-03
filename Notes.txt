@@ -25,7 +25,16 @@ Golf Score Grapher, project example:
     front end app at: http://golf.riesd.com/
 
 =====
-repl.it:
+misc from game_serializer:
+#display unique player names
+# def players
+#   object.scores.map(&:player).uniq.map(&:username)
+# end
+
+
+
+=====
+from game_serializer, repl.it:
 # gameData = [
 #     {name: 'Larry', data: [4]},
 #     {name: 'Curly', data: [3]},
