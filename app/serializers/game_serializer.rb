@@ -7,10 +7,11 @@ class GameSerializer < ActiveModel::Serializer
   def game_scores
     flattened_scores = []
     object.scores.each do |score|
-      flattened_scores << {'name': score.player.username, 'data': [score.points], 'tally': 0}
+      flattened_scores << {'name': score.player.username, 'player_id': score.player.id, 'data': [score.points], 'tally': 0}
     end
     # return flattened_scores
     #=> "game_scores":[{"name":"Larry","data":[4],"tally":0},{"name":"Curly","data":[3],"tally":0},{"name":"Moe","data":[1],"tally":0},{"name":"Jack","data":[2],"tally":0},{"name":"Larry","data":[7],"tally":0},{"name":"Curly","data":[5],"tally":0},{"name":"Moe","data":[9],"tally":0},{"name":"Jack","data":[8],"tally":0}]}
+
     collected_scores(flattened_scores)
   end #end game_scores
 
